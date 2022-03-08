@@ -8,7 +8,9 @@ const services = ref({
 
 <template>
   <div class="services">
-    <h1>{{ services.title }}</h1>
+    <div class="container">
+      <h1 class="text-primary text-center">{{ services.title }}</h1>
+    </div>
   </div>
 </template>
 

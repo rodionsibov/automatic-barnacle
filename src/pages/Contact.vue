@@ -8,7 +8,9 @@ const contact = ref({
 
 <template>
   <div class="contact">
-    <h1>{{ contact.title }}</h1>
+    <div class="container">
+      <h1 class="text-primary text-center">{{ contact.title }}</h1>
+    </div>
   </div>
 </template>
 

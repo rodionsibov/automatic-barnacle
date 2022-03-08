@@ -1,6 +1,9 @@
 <script setup>
 import { ref, watch } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter, useRoute, onBeforeRouteLeave } from "vue-router";
+
+const router = useRouter();
+const route = useRoute();
 
 const home = ref({
   title: "Home",
@@ -46,8 +49,13 @@ const products = ref([
   },
 ]);
 
-const router = useRouter();
-const route = useRoute();
+onBeforeRouteLeave((to, from) => {
+  const answer = window.confirm(
+    "Do you really want to leave? you have unsaved changes!"
+  );
+  // cancel the navigation and stay on the same page
+  if (!answer) return false;
+});
 
 const goTodetail = () => {
   router.push({ name: "details" });
@@ -55,47 +63,11 @@ const goTodetail = () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarColor01"
-        aria-controls="navbarColor01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <router-link class="nav-link active" to="/"
-              >Home
-              <span class="visually-hidden">(current)</span>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/blog">Blog</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/services">Services</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/contact">Contact</router-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <div class="home">
-    <h1 class="text-center my-2">{{ home.title }}</h1>
+    <div class="container">
+      <h1 class="text-primary text-center">{{ home.title }}</h1>
+    </div>
   </div>
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-4" v-for="(data, index) in products" :key="index">

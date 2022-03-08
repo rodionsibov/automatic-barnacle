@@ -8,7 +8,9 @@ const blog = ref({
 
 <template>
   <div class="blog">
-    <h1>{{ blog.title }}</h1>
+    <div class="container">
+      <h1 class="text-primary text-center">{{ blog.title }}</h1>
+    </div>
   </div>
 </template>
 
