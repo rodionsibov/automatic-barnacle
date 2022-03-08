@@ -28,19 +28,19 @@ defineProps({
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#"
+            <router-link class="nav-link active" to="/"
               >Home
               <span class="visually-hidden">(current)</span>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <router-link class="nav-link" to="/blog">Blog</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <router-link class="nav-link" to="/services">Services</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <router-link class="nav-link" to="/contact">Contact</router-link>
           </li>
           <li class="nav-item dropdown">
             <a
