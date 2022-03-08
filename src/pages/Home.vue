@@ -1,12 +1,39 @@
 <script setup>
 import { ref } from "vue";
 
-defineProps({
-  msg: {
-    type: String,
-    default: "Welcome to Your Vue.js App",
+const products = ref([
+  {
+    productTitle: "ABCN",
+    image: "https://picsum.photos/200/300?random=1",
+    productId: 1,
   },
-});
+  {
+    productTitle: "KARMA",
+    image: "https://picsum.photos/200/300?random=2",
+    productId: 2,
+  },
+  {
+    productTitle: "Tino",
+    image: "https://picsum.photos/200/300?random=3",
+    productId: 3,
+  },
+  {
+    productTitle: "EFG",
+    image: "https://picsum.photos/200/300?random=4",
+    productId: 4,
+  },
+  {
+    productTitle: "MLI",
+    image: "https://picsum.photos/200/300?random=5",
+    productId: 5,
+  },
+  {
+    productTitle: "Banans",
+    image: "https://picsum.photos/200/300?random=6",
+    productId: 6,
+  },
+]);
+console.log(products.value[0].productTitle);
 </script>
 
 <template>
@@ -42,7 +69,7 @@ defineProps({
           <li class="nav-item">
             <router-link class="nav-link" to="/contact">Contact</router-link>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
@@ -59,7 +86,7 @@ defineProps({
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Separated link</a>
             </div>
-          </li>
+          </li> -->
         </ul>
         <form class="d-flex">
           <input
@@ -74,6 +101,13 @@ defineProps({
       </div>
     </div>
   </nav>
+
+  <div class="row">
+    <div class="col" v-for="(data, index) in products" :key="index">
+      <img :src="data.image" class="img-fluid" />
+      <h3>{{ data.productTitle }}</h3>
+    </div>
+  </div>
 </template>
 
 <style scoped>
