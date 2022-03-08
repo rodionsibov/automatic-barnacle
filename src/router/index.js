@@ -23,7 +23,7 @@ const routes = [
         component: () => import('../pages/Contact.vue')
     },
     {
-        path: '/details',
+        path: '/details/:id',
         name: 'Details',
         component: () => import('../pages/Details.vue')
     },

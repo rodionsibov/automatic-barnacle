@@ -43,6 +43,7 @@ const products = ref([
   <div class="details">
     <div class="container">
       <h1 class="text-primary text-center">{{ details.title }}</h1>
+      <p class="text-center">the product id is : {{ this.$route.params.id }}</p>
     </div>
   </div>
 </template>
