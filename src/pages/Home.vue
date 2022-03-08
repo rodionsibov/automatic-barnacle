@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button
