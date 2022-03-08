@@ -1,35 +1,39 @@
 <script setup>
 import { ref } from "vue";
 
+const home = ref({
+  title: "Home",
+});
+
 const products = ref([
   {
     productTitle: "ABCN",
-    image: "https://picsum.photos/200/300?random=1",
+    image: "https://picsum.photos/300?random=1",
     productId: 1,
   },
   {
     productTitle: "KARMA",
-    image: "https://picsum.photos/200/300?random=2",
+    image: "https://picsum.photos/300?random=2",
     productId: 2,
   },
   {
     productTitle: "Tino",
-    image: "https://picsum.photos/200/300?random=3",
+    image: "https://picsum.photos/300?random=3",
     productId: 3,
   },
   {
     productTitle: "EFG",
-    image: "https://picsum.photos/200/300?random=4",
+    image: "https://picsum.photos/300?random=4",
     productId: 4,
   },
   {
     productTitle: "MLI",
-    image: "https://picsum.photos/200/300?random=5",
+    image: "https://picsum.photos/300?random=5",
     productId: 5,
   },
   {
     productTitle: "Banans",
-    image: "https://picsum.photos/200/300?random=6",
+    image: "https://picsum.photos/300?random=6",
     productId: 6,
   },
 ]);
@@ -102,13 +106,24 @@ console.log(products.value[0].productTitle);
     </div>
   </nav>
 
-  <div class="row">
-    <div class="col" v-for="(data, index) in products" :key="index">
-      <img :src="data.image" class="img-fluid" />
-      <h3>{{ data.productTitle }}</h3>
+  <div class="home">
+    <h1>{{ home.title }}</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4" v-for="(data, index) in products" :key="index">
+        <img :src="data.image" class="img-fluid" />
+        <h3>{{ data.productTitle }}</h3>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.home {
+  text-align: center;
+  margin: 20px auto;
+}
+
 </style>
