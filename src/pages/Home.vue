@@ -1,9 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 const home = ref({
   title: "Home",
 });
+
+watch(
+  () => route.params.id,
+  () => {
+    console.log("route params id: ", route.params.id);
+  }
+);
 
 const products = ref([
   {
@@ -37,13 +45,19 @@ const products = ref([
     productId: 6,
   },
 ]);
-console.log(products.value[0].productTitle);
+
+const router = useRouter();
+const route = useRoute();
+
+const goTodetail = () => {
+  router.push({ name: "details" });
+};
 </script>
 
 <template>
   <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#"></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -73,57 +87,26 @@ console.log(products.value[0].productTitle);
           <li class="nav-item">
             <router-link class="nav-link" to="/contact">Contact</router-link>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >Dropdown</a
-            >
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li> -->
         </ul>
-        <form class="d-flex">
-          <input
-            class="form-control me-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
       </div>
     </div>
   </nav>
 
   <div class="home">
-    <h1>{{ home.title }}</h1>
+    <h1 class="text-center my-2">{{ home.title }}</h1>
   </div>
 
   <div class="container-fluid">
     <div class="row">
       <div class="col-4" v-for="(data, index) in products" :key="index">
         <img :src="data.image" class="img-fluid" />
-        <h3>{{ data.productTitle }}</h3>
+        <h3 @click="goTodetail()" class="text-center" style="cursor: pointer">
+          {{ data.productTitle }}
+        </h3>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.home {
-  text-align: center;
-  margin: 20px auto;
-}
-
 </style>
