@@ -58,7 +58,7 @@ onBeforeRouteLeave((to, from) => {
 });
 
 const goTodetail = () => {
-  router.push({ name: "details" });
+  router.push({ name: "Details" });
 };
 </script>
 
@@ -72,7 +72,7 @@ const goTodetail = () => {
     <div class="row">
       <div class="col-4" v-for="(data, index) in products" :key="index">
         <img :src="data.image" class="img-fluid" />
-        <h3 @click="goTodetail()" class="text-center" style="cursor: pointer">
+        <h3 @click="goTodetail(data.productId)" class="text-center mt-1 mb-3" style="cursor: pointer">
           {{ data.productTitle }}
         </h3>
       </div>
