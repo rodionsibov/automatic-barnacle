@@ -46,6 +46,13 @@ const products = ref([
       <p class="text-center">the product id is : {{ this.$route.params.id }}</p>
     </div>
   </div>
+
+  <div class="col" v-for="(product, index) in products" :key="index">
+    <div v-if="this.$route.params.id == product.productId">
+      <h1>{{ product.productTitle }}</h1>
+      <img :src="product.image" class="img-fluid" />
+    </div>
+  </div>
 </template>
 
 <style scoped>
