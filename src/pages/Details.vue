@@ -43,14 +43,14 @@ const products = ref([
   <div class="details">
     <div class="container">
       <h1 class="text-primary text-center">{{ details.title }}</h1>
-      <!-- <p class="text-center">the product id is : {{ this.$route.params.id }}</p> -->
+      <p class="text-center">the product id is : {{ this.$route.params.id }}</p>
     </div>
   </div>
 
-  <div class="col text-center" v-for="(product, index) in products" :key="index">
+  <div class="col text-center mt-4" v-for="(product, index) in products" :key="index">
     <div v-if="this.$route.params.id == product.productId">
       <img :src="product.image" class="img-fluid" />
-      <h2>{{ product.productTitle }}</h2>
+      <h2 class="mt-2">{{ product.productTitle }}</h2>
     </div>
   </div>
 </template>

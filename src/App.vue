@@ -40,9 +40,32 @@
     </div>
   </nav>
   <div class="container my-4">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <style>
+.fade-enter-active {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.fade-enter-active {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>
