@@ -10,6 +10,7 @@ const blog = ref({
   <div class="blog">
     <div class="container">
       <h1 class="text-primary text-center">{{ blog.title }}</h1>
+      <p>Hover <a href="#" data-replace="get a link"><span>get a link</span></a></p>
     </div>
   </div>
 </template>

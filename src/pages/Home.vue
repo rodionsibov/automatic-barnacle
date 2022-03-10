@@ -67,6 +67,7 @@ const goToDetail = (productId) => {
     <div class="home">
       <div class="container">
         <h1 class="text-primary text-center">{{ home.title }}</h1>
+        <p>The Sliding Highlight Link Hover Effect</p>
       </div>
     </div>
     <div class="container-fluid">
@@ -78,7 +79,7 @@ const goToDetail = (productId) => {
             class="text-center mt-1 mb-3"
             style="cursor: pointer"
           >
-            <a href="">{{ data.productTitle }}</a>
+            <span>{{ data.productTitle }}</span>
           </h3>
         </div>
       </div>
@@ -87,7 +88,7 @@ const goToDetail = (productId) => {
 </template>
 
 <style scoped>
-a {
+span {
   text-decoration: none;
   box-shadow: inset 0 0 0 0 #54b3d6;
   color: #54b3d6;
@@ -95,7 +96,7 @@ a {
   padding: 0 0.25rem;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-a:hover {
+span:hover {
   box-shadow: inset 100px 0 0 0 #54b3d6;
   color: white;
 }
