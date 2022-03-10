@@ -63,12 +63,10 @@ const goToDetail = (productId) => {
 </script>
 
 <template>
-  <div>
-    <div class="home">
-      <div class="container text-center">
-        <h1 class="display-5">{{ home.title }}</h1>
-        <p class="lead">The Sliding Highlight Link Hover Effect</p>
-      </div>
+  <div class="home">
+    <div class="container text-center">
+      <h1 class="display-5">{{ home.title }}</h1>
+      <p class="lead">The Sliding Highlight Link Hover Effect</p>
     </div>
     <div class="container-fluid mt-5">
       <div class="row">
