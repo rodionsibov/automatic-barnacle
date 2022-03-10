@@ -63,22 +63,24 @@ const goToDetail = (productId) => {
 </script>
 
 <template>
-  <div class="home">
-    <div class="container">
-      <h1 class="text-primary text-center">{{ home.title }}</h1>
+  <div>
+    <div class="home">
+      <div class="container">
+        <h1 class="text-primary text-center">{{ home.title }}</h1>
+      </div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-4" v-for="(data, index) in products" :key="index">
-        <img :src="data.image" class="img-fluid" />
-        <h3
-          @click="goToDetail(data.productId)"
-          class="text-center mt-1 mb-3"
-          style="cursor: pointer"
-        >
-          {{ data.productTitle }}
-        </h3>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4" v-for="(data, index) in products" :key="index">
+          <img :src="data.image" class="img-fluid" />
+          <h3
+            @click="goToDetail(data.productId)"
+            class="text-center mt-1 mb-3"
+            style="cursor: pointer"
+          >
+            {{ data.productTitle }}
+          </h3>
+        </div>
       </div>
     </div>
   </div>
