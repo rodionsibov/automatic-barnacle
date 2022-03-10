@@ -1,6 +1,12 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+const toggle = () => {
+  document.querySelector("#navbarColor01").classList.toggle("collapse");
+  document
+    .querySelectorAll("#navbarColor01 li a")
+    .forEach((item) => item.classList.toggle("px-2"));
+};
 </script>
 
 <template>
@@ -8,6 +14,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
       <button
+        @click="toggle"
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -21,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <router-link class="nav-link active" to="/"
+            <router-link class="nav-link" to="/"
               >Home
               <span class="visually-hidden">(current)</span>
             </router-link>
