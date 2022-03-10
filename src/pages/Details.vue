@@ -42,9 +42,9 @@ const products = ref([
 <template>
   <div>
     <div class="details">
-      <div class="container">
-        <h1 class="text-primary text-center">{{ details.title }}</h1>
-        <p class="text-center">the product id is : {{ this.$route.params.id }}</p>
+      <div class="container text-center">
+        <h1 class="display-5">{{ details.title }}</h1>
+        <p class="">the product id is : {{ this.$route.params.id }}</p>
       </div>
     </div>
     <div class="col text-center mt-4" v-for="(product, index) in products" :key="index">

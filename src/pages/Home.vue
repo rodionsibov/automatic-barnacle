@@ -65,12 +65,12 @@ const goToDetail = (productId) => {
 <template>
   <div>
     <div class="home">
-      <div class="container">
-        <h1 class="text-primary text-center">{{ home.title }}</h1>
-        <p>The Sliding Highlight Link Hover Effect</p>
+      <div class="container text-center">
+        <h1 class="display-5">{{ home.title }}</h1>
+        <p class="lead">The Sliding Highlight Link Hover Effect</p>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
       <div class="row">
         <div class="col-4" v-for="(data, index) in products" :key="index">
           <img :src="data.image" class="img-fluid" />
