@@ -12,7 +12,7 @@ const blog = ref({
       <h1 class="display-5">{{ blog.title }}</h1>
       <p class="lead">The Right-to-Left Color Swap Link Hover Effect</p>
     </div>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col">
           <a href="">Hover This Link</a>
