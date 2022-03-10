@@ -12,8 +12,8 @@ const services = ref({
       <h1 class="display-5">{{ services.title }}</h1>
     </div>
     <div class="container mt-4">
-      <details class="list-group mb-2" open v-for="(detail, index) in 5" :key="index">
-        <summary class="list-group-item list-group-item-success">
+      <details class="list-group mb-2" open v-for="(detail, index) in 15" :key="index">
+        <summary class="list-group-item list-group-item-success" title="Toggle">
           <b>{{ detail }} - System Requirements</b>
         </summary>
         <p class="list-group-item">
