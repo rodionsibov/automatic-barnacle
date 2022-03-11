@@ -3,9 +3,6 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 const toggle = () => {
   document.querySelector("#navbarColor01").classList.toggle("collapse");
-  document
-    .querySelectorAll("#navbarColor01 li a")
-    .forEach((item) => item.classList.toggle("px-2"));
 };
 </script>
 
