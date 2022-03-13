@@ -1,6 +1,17 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import { watch } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+
+watch(
+  () => route.params.id,
+  () => {
+    console.log("route params id: ", route.params.id);
+  }
+);
+
 const toggle = () => {
   document.querySelector("#navbarColor01").classList.toggle("collapse");
 };
@@ -25,19 +36,23 @@ const toggle = () => {
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/"
+            <router-link class="nav-link px-2" to="/"
               >Home
               <span class="visually-hidden">(current)</span>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/blog">Blog</router-link>
+            <router-link class="nav-link px-2" to="/blog">Blog</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/services">Services</router-link>
+            <router-link class="nav-link px-2" to="/services"
+              >Services</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/contact">Contact</router-link>
+            <router-link class="nav-link px-2" to="/contact"
+              >Contact</router-link
+            >
           </li>
         </ul>
       </div>
