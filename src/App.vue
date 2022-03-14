@@ -11,7 +11,6 @@ const route = useRoute();
 //   placement: "top",
 // });
 
-
 watch(
   () => route.path,
   () => {
@@ -21,9 +20,9 @@ watch(
 
 const checkClass = (e) => {
   const link = e.target;
-  if (link.classList.contains("router-link-active")) {
-    link.classList.add("active");
-  }
+  link.classList.contains("router-link-active")
+    ? link.classList.add("active")
+    : link.classList.remove("active");
 };
 
 const toggle = () => {
@@ -51,9 +50,7 @@ const toggle = () => {
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto" @click="checkClass($event)">
           <li class="nav-item">
-            <router-link
-              class="nav-link px-2 active"
-              to="/"
+            <router-link class="nav-link px-2 active" to="/"
               >Home
               <span class="visually-hidden">(current)</span>
             </router-link>
