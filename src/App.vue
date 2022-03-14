@@ -1,16 +1,30 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { watch } from "vue";
+import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
+import { createPopper } from "@popperjs/core";
+
 const route = useRoute();
 
+// createPopper(document.querySelector(".navbar-toggler-icon"), document.querySelector("#tooltip"), {
+//   placement: "top",
+// });
+
+
 watch(
-  () => route.params.id,
+  () => route.path,
   () => {
-    console.log("route params id: ", route.params.id);
+    // console.log(route.path);
   }
 );
+
+const checkClass = (e) => {
+  const link = e.target;
+  if (link.classList.contains("router-link-active")) {
+    link.classList.add("active");
+  }
+};
 
 const toggle = () => {
   document.querySelector("#navbarColor01").classList.toggle("collapse");
@@ -32,17 +46,25 @@ const toggle = () => {
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
+        <div id="tooltip">My tooltip</div>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav me-auto" @click="checkClass($event)">
           <li class="nav-item">
-            <router-link class="nav-link px-2" to="/"
+            <router-link
+              class="nav-link px-2 active"
+              to="/"
               >Home
               <span class="visually-hidden">(current)</span>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link px-2" to="/blog">Blog</router-link>
+            <router-link
+              class="nav-link px-2"
+              to="/blog"
+              :class="{ active: isActive }"
+              >Blog</router-link
+            >
           </li>
           <li class="nav-item">
             <router-link class="nav-link px-2" to="/services"

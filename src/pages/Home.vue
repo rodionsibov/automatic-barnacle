@@ -72,13 +72,13 @@ const goToDetail = (productId) => {
       <div class="row">
         <div class="col-4" v-for="(data, index) in products" :key="index">
           <img :src="data.image" class="img-fluid" />
-          <h3
+          <div
             @click="goToDetail(data.productId)"
-            class="text-center mt-1 mb-3"
+            class="text-center mt-1 mb-3 h5"
             style="cursor: pointer"
           >
             <span>{{ data.productTitle }}</span>
-          </h3>
+          </div>
         </div>
       </div>
     </div>
