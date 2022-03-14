@@ -14,16 +14,9 @@ const route = useRoute();
 watch(
   () => route.path,
   () => {
-    // console.log(route.path);
+    console.log(route.path);
   }
 );
-
-const checkClass = (e) => {
-  const link = e.target;
-  link.classList.contains("router-link-active")
-    ? link.classList.add("active")
-    : link.classList.remove("active");
-};
 
 const toggle = () => {
   document.querySelector("#navbarColor01").classList.toggle("collapse");
@@ -48,20 +41,15 @@ const toggle = () => {
         <div id="tooltip">My tooltip</div>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto" @click="checkClass($event)">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <router-link class="nav-link px-2 active" to="/"
+            <router-link class="nav-link px-2" to="/"
               >Home
               <span class="visually-hidden">(current)</span>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link
-              class="nav-link px-2"
-              to="/blog"
-              :class="{ active: isActive }"
-              >Blog</router-link
-            >
+            <router-link class="nav-link px-2" to="/blog">Blog</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link px-2" to="/services"
@@ -105,5 +93,14 @@ const toggle = () => {
   100% {
     opacity: 1;
   }
+}
+
+.router-link-active {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.router-link-active:hover {
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
 </style>
