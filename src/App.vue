@@ -1,15 +1,64 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { createPopper } from "@popperjs/core";
 
 const route = useRoute();
+onMounted(() => {
+  const element = document.querySelectorAll(".nav-item")[3];
+  const tooltip = document.querySelector("#tooltip");
+  const popperInstance = createPopper(
+    element,
+    tooltip,
+    {
+      placement: "right",
+    }
+  );
 
-// createPopper(document.querySelector(".navbar-toggler-icon"), document.querySelector("#tooltip"), {
-//   placement: "top",
-// });
+  const show = () => {
+    // Make the tooltip visible
+    tooltip.setAttribute("data-show", "");
+
+    // Enable the event listeners
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: "eventListeners", enabled: true },
+      ],
+    }));
+
+    // Update its position
+    popperInstance.update();
+  };
+
+  const hide = () => {
+    // Hide the tooltip
+    tooltip.removeAttribute("data-show");
+
+    // Disable the event listeners
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: "eventListeners", enabled: false },
+      ],
+    }));
+  };
+
+  const showEvents = ["mouseenter", "focus"];
+  const hideEvents = ["mouseleave", "blur"];
+
+  showEvents.forEach((event) => {
+    element.addEventListener(event, show);
+  });
+
+  hideEvents.forEach((event) => {
+    element.addEventListener(event, hide);
+  });
+});
 
 watch(
   () => route.path,
@@ -38,7 +87,6 @@ const toggle = () => {
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-        <div id="tooltip">My tooltip</div>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
@@ -66,6 +114,11 @@ const toggle = () => {
     </div>
   </nav>
   <div class="container my-4">
+    <div id="tooltip">
+      My tooltip
+      <div id="arrow" data-popper-arrow="top"></div>
+    </div>
+
     <router-view v-slot="{ Component }">
       <transition name="fade">
         <component :is="Component" />
@@ -102,5 +155,53 @@ const toggle = () => {
 
 .router-link-active:hover {
   background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+#tooltip {
+  display: none;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+#arrow {
+  visibility: hidden;
+}
+
+#arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+}
+
+#tooltip[data-popper-placement^="top"] > #arrow {
+  bottom: -4px;
+}
+
+#tooltip[data-popper-placement^="bottom"] > #arrow {
+  top: -4px;
+}
+
+#tooltip[data-popper-placement^="left"] > #arrow {
+  right: -4px;
+}
+
+#tooltip[data-popper-placement^="right"] > #arrow {
+  left: -4px;
+}
+
+#tooltip[data-show] {
+  display: block;
 }
 </style>
