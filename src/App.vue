@@ -5,60 +5,58 @@ import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { createPopper } from "@popperjs/core";
 
+import Sidebar from "./components/Sidebar.vue";
+
 const route = useRoute();
-onMounted(() => {
-  const element = document.querySelectorAll(".nav-item")[3];
-  const tooltip = document.querySelector("#tooltip");
-  const popperInstance = createPopper(
-    element,
-    tooltip,
-    {
-      placement: "right",
-    }
-  );
+// onMounted(() => {
+//   const element = document.querySelectorAll(".nav-item")[3];
+//   const tooltip = document.querySelector("#tooltip");
+//   const popperInstance = createPopper(element, tooltip, {
+//     placement: "right",
+//   });
 
-  const show = () => {
-    // Make the tooltip visible
-    tooltip.setAttribute("data-show", "");
+//   const show = () => {
+//     // Make the tooltip visible
+//     tooltip.setAttribute("data-show", "");
 
-    // Enable the event listeners
-    popperInstance.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: "eventListeners", enabled: true },
-      ],
-    }));
+//     // Enable the event listeners
+//     popperInstance.setOptions((options) => ({
+//       ...options,
+//       modifiers: [
+//         ...options.modifiers,
+//         { name: "eventListeners", enabled: true },
+//       ],
+//     }));
 
-    // Update its position
-    popperInstance.update();
-  };
+//     // Update its position
+//     popperInstance.update();
+//   };
 
-  const hide = () => {
-    // Hide the tooltip
-    tooltip.removeAttribute("data-show");
+//   const hide = () => {
+//     // Hide the tooltip
+//     tooltip.removeAttribute("data-show");
 
-    // Disable the event listeners
-    popperInstance.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: "eventListeners", enabled: false },
-      ],
-    }));
-  };
+//     // Disable the event listeners
+//     popperInstance.setOptions((options) => ({
+//       ...options,
+//       modifiers: [
+//         ...options.modifiers,
+//         { name: "eventListeners", enabled: false },
+//       ],
+//     }));
+//   };
 
-  const showEvents = ["mouseenter", "focus"];
-  const hideEvents = ["mouseleave", "blur"];
+//   const showEvents = ["mouseenter", "focus"];
+//   const hideEvents = ["mouseleave", "blur"];
 
-  showEvents.forEach((event) => {
-    element.addEventListener(event, show);
-  });
+//   showEvents.forEach((event) => {
+//     element.addEventListener(event, show);
+//   });
 
-  hideEvents.forEach((event) => {
-    element.addEventListener(event, hide);
-  });
-});
+//   hideEvents.forEach((event) => {
+//     element.addEventListener(event, hide);
+//   });
+// });
 
 watch(
   () => route.path,
@@ -73,7 +71,8 @@ const toggle = () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <Sidebar />
+  <!-- <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
       <button
@@ -112,7 +111,7 @@ const toggle = () => {
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
   <div class="container my-4">
     <div id="tooltip">
       My tooltip
