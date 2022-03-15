@@ -45,4 +45,9 @@ const { toggleSidebar } = store;
   color: rgba(255, 255, 255, 0.7);
   transition: 0.2s linear;
 }
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: 0.2s linear;
+}
 </style>
