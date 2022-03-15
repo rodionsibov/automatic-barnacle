@@ -3,17 +3,29 @@
   
 <template>
   <div class="sidebar">sidebar</div>
+  <h1>skdfh</h1>
 </template>
 
-<style scoped>
+<style>
 :root {
   --sidebar-bg-color: #2f855a;
   --sidebar-item-hover: #38a169;
   --sidebar-item-active: #276749;
 }
+</style>
 
+<style scoped>
 .sidebar {
   color: white;
   background-color: var(--sidebar-bg-color);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
 }
+
 </style>
