@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
