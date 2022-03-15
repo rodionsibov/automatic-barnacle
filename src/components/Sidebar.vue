@@ -9,14 +9,18 @@ const { toggleSidebar } = store;
   
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-<h1>
-  <span v-if="collapsed">
-    <div>V</div>
-    <div>S</div>
-  </span>
-</h1>
+    <h1>
+      <span v-if="collapsed">
+        <div>V</div>
+        <div>S</div>
+      </span>
+    </h1>
 
-    <span class="collapse-icon" @click="toggleSidebar" :class="{'rotate-180': collapsed}">
+    <span
+      class="collapse-icon"
+      @click="toggleSidebar"
+      :class="{ 'rotate-180': collapsed }"
+    >
       <i class="fas fa-angle-double-left"></i>
     </span>
   </div>
@@ -47,10 +51,15 @@ const { toggleSidebar } = store;
 
 .collapse-icon {
   position: absolute;
-  bottom: 0;
-  padding: 0.75em;
-  color: rgba(255, 255, 255, 0.7);
+  bottom: 10px;
+  left: 12px;
+  color: rgba(255, 255, 255, 0.6);
   transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.collapse-icon:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .rotate-180 {

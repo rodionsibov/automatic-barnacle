@@ -1,4 +1,8 @@
 <script setup>
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
 defineProps({
   to: {
     type: String,
@@ -9,6 +13,9 @@ defineProps({
     required: true,
   },
 });
+
+const isActive = computed(() => route.path === to);
+console.log(isActive);
 </script>
   
 <template></template>
