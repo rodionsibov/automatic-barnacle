@@ -1,4 +1,7 @@
 <script setup>
+import { useStore } from "../stores";
+
+const store = useStore()
 </script>
   
 <template>
@@ -27,5 +30,4 @@
   flex-direction: column;
   transition: 0.3s ease;
 }
-
 </style>
