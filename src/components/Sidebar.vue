@@ -9,7 +9,9 @@ const { toggleSidebar } = store;
   
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <span class="collapse-icon" @click="toggleSidebar"></span>
+    <span class="collapse-icon" @click="toggleSidebar">
+      <i class="fas fa-angle-double-left"></i>
+    </span>
   </div>
 </template>
 
