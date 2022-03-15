@@ -1,11 +1,16 @@
 <script setup>
+import { storeToRefs } from "pinia";
 import { useStore } from "../stores";
 
-const store = useStore()
+const store = useStore();
+const { collapsed, sidebarWidth } = storeToRefs(store);
+const { toggleSidebar } = store;
 </script>
   
 <template>
-  <div class="sidebar">sidebar</div>
+  <div class="sidebar" :style="{ width: sidebarWidth }">
+    <span class="collapse-icon" @click="toggleSidebar"></span>
+  </div>
 </template>
 
 <style>

@@ -1,4 +1,4 @@
-import { defineStore, storeToRefs } from 'pinia'
+import { defineStore } from 'pinia'
 
 export const useStore = defineStore('main', {
     state: () => ({
@@ -7,9 +7,9 @@ export const useStore = defineStore('main', {
         SIDEBAR_WIDTH_COLLAPSED: 38,
     }),
     getters: {
-        sidebarWidth() {
-            return `${this.collapsed ? this.SIDEBAR_WIDTH_COLLAPSED : this.SIDEBAR_WIDTH}px`
-        }
+        sidebarWidth: (state) => {
+            return `${state.collapsed ? state.SIDEBAR_WIDTH_COLLAPSED : state.SIDEBAR_WIDTH}px`
+        },
     },
     actions: {
         toggleSidebar() {
