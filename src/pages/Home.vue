@@ -71,7 +71,7 @@ const goToDetail = (productId) => {
     <div class="container-fluid mt-5">
       <div class="row">
         <div class="col-4" v-for="(data, index) in products" :key="index">
-          <img :src="data.image" class="img-fluid" />
+          <img :src="data.image" class="img-fluid w-100" />
           <div
             @click="goToDetail(data.productId)"
             class="text-center mt-1 mb-3 h5"
