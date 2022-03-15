@@ -3,7 +3,6 @@
   
 <template>
   <div class="sidebar">sidebar</div>
-  <h1>skdfh</h1>
 </template>
 
 <style>
@@ -26,6 +25,7 @@
   padding: 0.5em;
   display: flex;
   flex-direction: column;
+  transition: 0.3s ease;
 }
 
 </style>
