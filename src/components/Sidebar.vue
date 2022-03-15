@@ -37,4 +37,12 @@ const { toggleSidebar } = store;
   flex-direction: column;
   transition: 0.3s ease;
 }
+
+.collapse-icon {
+  position: absolute;
+  bottom: 0;
+  padding: 0.75em;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.2s linear;
+}
 </style>
