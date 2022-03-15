@@ -4,8 +4,12 @@
 import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { createPopper } from "@popperjs/core";
-
+import { useStore } from "./stores";
+import { storeToRefs } from "pinia";
 import Sidebar from "./components/Sidebar.vue";
+
+const store = useStore();
+const { sidebarWidth } = storeToRefs(store);
 
 const route = useRoute();
 // onMounted(() => {
@@ -65,9 +69,9 @@ watch(
   }
 );
 
-const toggle = () => {
-  document.querySelector("#navbarColor01").classList.toggle("collapse");
-};
+// const toggle = () => {
+//   document.querySelector("#navbarColor01").classList.toggle("collapse");
+// };
 </script>
 
 <template>
@@ -111,13 +115,22 @@ const toggle = () => {
         </ul>
       </div>
     </div>
-  </nav> -->
+  </nav>
+
   <div class="container my-4">
     <div id="tooltip">
       My tooltip
       <div id="arrow" data-popper-arrow="top"></div>
     </div>
 
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div> -->
+
+  <div :style="{ 'margin-left': sidebarWidth }" class="mt-4">
     <router-view v-slot="{ Component }">
       <transition name="fade">
         <component :is="Component" />

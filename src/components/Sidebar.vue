@@ -1,6 +1,6 @@
 <script setup>
-import { storeToRefs } from "pinia";
 import { useStore } from "../stores";
+import { storeToRefs } from "pinia";
 
 const store = useStore();
 const { collapsed, sidebarWidth } = storeToRefs(store);
@@ -9,7 +9,14 @@ const { toggleSidebar } = store;
   
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <span class="collapse-icon" @click="toggleSidebar">
+<h1>
+  <span v-if="collapsed">
+    <div>V</div>
+    <div>S</div>
+  </span>
+</h1>
+
+    <span class="collapse-icon" @click="toggleSidebar" :class="{'rotate-180': collapsed}">
       <i class="fas fa-angle-double-left"></i>
     </span>
   </div>
@@ -48,6 +55,5 @@ const { toggleSidebar } = store;
 
 .rotate-180 {
   transform: rotate(180deg);
-  transition: 0.2s linear;
 }
 </style>
