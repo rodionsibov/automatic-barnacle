@@ -47,4 +47,12 @@ const isActive = computed(() => route.path === props.to);
   color: white;
   text-decoration: none;
 }
+
+.link:hover {
+  background-color: var(--sidebar-item-hover);
+}
+
+.link:active {
+  background-color: var(--sidebar-item-active);
+}
 </style>
