@@ -4,7 +4,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-defineProps({
+const props = defineProps({
   to: {
     type: String,
     required: true,
@@ -15,11 +15,15 @@ defineProps({
   },
 });
 
-const isActive = computed(() => route.path === to);
-console.log(isActive);
+const isActive = computed(() => route.path === props.to);
 </script>
   
-<template></template>
+<template>
+  <router-link :to="to" class="link" :class="{ active: isActive }">
+    <i class="icon" :class="icon"></i>
+    <slot />
+  </router-link>
+</template>
 
 <style scoped>
 </style>
