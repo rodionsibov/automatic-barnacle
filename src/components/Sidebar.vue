@@ -11,14 +11,17 @@ const { toggleSidebar } = store;
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
-      <span v-if="collapsed">
-        <div>V</div>
-        <div>S</div>
+      <span v-if="!collapsed">
+        <div>Vue</div>
+        <div>Sidebar</div>
       </span>
     </h1>
 
-  <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-
+    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
+    <SidebarLink to="/blog" icon="fas fa-columns">Blog</SidebarLink>
+    <SidebarLink to="/services" icon="fas fa-char-bar">Services</SidebarLink>
+    <SidebarLink to="/contact" icon="fas fa-users">Contact</SidebarLink>
+    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
 
     <span
       class="collapse-icon"
@@ -31,6 +34,14 @@ const { toggleSidebar } = store;
 </template>
 
 <style scoped>
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 20px 0;
+}
+
 .sidebar {
   color: white;
   background-color: var(--sidebar-bg-color);
