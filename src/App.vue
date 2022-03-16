@@ -7,7 +7,6 @@ import { createPopper } from "@popperjs/core";
 import { useStore } from "./stores";
 import { storeToRefs } from "pinia";
 import Sidebar from "./components/Sidebar.vue";
-import SidebarLinks from "./components/SidebarLinks.vue";
 
 const store = useStore();
 const { sidebarWidth } = storeToRefs(store);
@@ -77,7 +76,6 @@ watch(
 
 <template>
   <Sidebar />
-  <SidebarLinks />
   <!-- <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>

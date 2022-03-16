@@ -1,6 +1,7 @@
 <script setup>
 import { useStore } from "../stores";
 import { storeToRefs } from "pinia";
+import SidebarLinks from "./components/SidebarLinks.vue";
 
 const store = useStore();
 const { collapsed, sidebarWidth } = storeToRefs(store);
