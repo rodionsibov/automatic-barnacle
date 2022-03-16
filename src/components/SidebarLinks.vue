@@ -20,8 +20,8 @@ const isActive = computed(() => route.path === props.to);
   
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
-    <i class="icon" :class="icon"></i>
-    <slot />
+    <i class="icon" :class="props.icon"></i>
+    <span v-if="!collapsed"><slot /></span>
   </router-link>
 </template>
 
