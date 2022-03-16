@@ -1,7 +1,7 @@
 <script setup>
 import { useStore } from "../stores";
 import { storeToRefs } from "pinia";
-import SidebarLinks from "./components/SidebarLinks.vue";
+import SidebarLink from "./SidebarLink.vue";
 
 const store = useStore();
 const { collapsed, sidebarWidth } = storeToRefs(store);
@@ -16,6 +16,9 @@ const { toggleSidebar } = store;
         <div>S</div>
       </span>
     </h1>
+
+  <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
+
 
     <span
       class="collapse-icon"
