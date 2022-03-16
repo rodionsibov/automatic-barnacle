@@ -24,7 +24,11 @@ const isActive = computed(() => route.path === props.to);
 </script>
   
 <template>
-  <router-link :to="to" class="link" :class="{ active: isActive }">
+  <router-link
+    :to="to"
+    class="link"
+    :class="{ active: isActive }"
+  >
     <i class="icon" :class="props.icon"></i>
     <transition name="fade">
       <span v-if="!collapsed">
@@ -50,10 +54,9 @@ const isActive = computed(() => route.path === props.to);
   align-items: center;
   cursor: pointer;
   position: relative;
-  font-weight: 400;
   user-select: none;
   margin: 0.2em 0;
-  padding: 1em;
+  padding: 0.1em;
   border-radius: 0.25em;
   height: 1.5em;
   color: white;

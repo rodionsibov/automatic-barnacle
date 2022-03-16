@@ -4,7 +4,7 @@ export const useStore = defineStore('main', {
     state: () => ({
         collapsed: false,
         SIDEBAR_WIDTH: 180,
-        SIDEBAR_WIDTH_COLLAPSED: 38,
+        SIDEBAR_WIDTH_COLLAPSED: 50,
     }),
     getters: {
         sidebarWidth: (state) => {

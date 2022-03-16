@@ -11,7 +11,11 @@ const { toggleSidebar } = store;
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
-      <span v-if="!collapsed">
+      <span v-if="collapsed">
+        <div>V</div>
+        <div>S</div>
+      </span>
+      <span v-else>
         <div>Vue</div>
         <div>Sidebar</div>
       </span>
@@ -21,7 +25,7 @@ const { toggleSidebar } = store;
     <SidebarLink to="/blog" icon="fas fa-columns">Blog</SidebarLink>
     <SidebarLink to="/services" icon="fas fa-char-bar">Services</SidebarLink>
     <SidebarLink to="/contact" icon="fas fa-users">Contact</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+    <SidebarLink to="/images" icon="fas fa-image">Images</SidebarLink>
 
     <span
       class="collapse-icon"
