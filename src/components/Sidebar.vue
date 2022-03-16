@@ -63,7 +63,7 @@ h1 {
 .collapse-icon {
   position: absolute;
   bottom: 10px;
-  left: 12px;
+  left: 18px;
   color: rgba(255, 255, 255, 0.6);
   transition: 0.2s linear;
   cursor: pointer;
