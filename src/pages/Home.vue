@@ -21,7 +21,7 @@ const home = ref({
     <div class="container">
       <div class="row">
         <div class="col">
-          <button class="btn btn-secondary" @click="toggleSidebar"></button>
+          <button class="btn btn-secondary" @click="toggleSidebar">Toggle Sidebar</button>
         </div>
       </div>
     </div>
