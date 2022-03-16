@@ -55,4 +55,10 @@ const isActive = computed(() => route.path === props.to);
 .link:active {
   background-color: var(--sidebar-item-active);
 }
+
+.link .icon {
+  flex-shrink: 0;
+  width: 25px;
+  margin-right: 10px;
+}
 </style>
