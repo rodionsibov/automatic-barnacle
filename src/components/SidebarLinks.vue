@@ -40,7 +40,10 @@ const isActive = computed(() => route.path === props.to);
   transition: opacity 0.1s;
 }
 
-
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 
 .link {
   display: flex;
